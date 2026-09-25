@@ -1,0 +1,146 @@
+/* Importar tipografía Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+    --neon-pink: #ff007f;
+    --neon-pink-light: #ff66b2;
+    --bg-color: #f4f1ea; /* Tono papel reciclado/marfil */
+    --paper-white: #ffffff;
+    --paper-shadow: 4px 4px 0px #111111;
+    --paper-shadow-hover: 7px 7px 0px #111111;
+    --text-color: #111111;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    /* Patrón sutil estilo textura de papel o impresión */
+    background-image: radial-gradient(#d6c9b0 0.75px, transparent 0.75px);
+    background-size: 16px 16px;
+}
+
+/* Contenedor Principal tipo Linktree centrado */
+.main-content {
+    background: var(--paper-white);
+    width: 100%;
+    max-width: 440px;
+    margin: 20px;
+    padding: 40px 30px;
+    border: 3px solid var(--text-color);
+    /* Efecto de recorte de papel con sombra dura offset */
+    box-shadow: 8px 8px 0px var(--text-color);
+    position: relative;
+    transform: rotate(-0.55deg); /* Toque orgánico de diseñador */
+    transition: transform 0.3s ease;
+}
+
+.main-content:hover {
+    transform: rotate(0deg);
+}
+
+/* Encabezado */
+.tittle {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.tittle h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+}
+
+/* Detalle de diseño: Subrayado estilo marcador/recorte en rosado neón */
+.tittle h1::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: var(--neon-pink);
+    z-index: -1;
+    opacity: 0.85;
+    transform: skewX(-12deg);
+}
+
+.tittle p {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Navegación y Lista de Botones */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.item-list a {
+    display: block;
+    text-align: center;
+    background-color: var(--paper-white);
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 16px 20px;
+    border: 3px solid var(--text-color);
+    text-decoration: none;
+    /* Sombra dura estilo bloque de papel */
+    box-shadow: var(--paper-shadow);
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+/* Interacción interesante: El botón se desplaza y destella en rosado neón */
+.item-list a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--neon-pink);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.item-list a:hover {
+    color: #ffffff;
+    box-shadow: var(--paper-shadow-hover);
+    transform: translate(-3px, -3px);
+}
+
+.item-list a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Pequeño detalle extra: Efecto al hacer clic (Active) */
+.item-list a:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px var(--text-color);
+}
