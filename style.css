@@ -75,10 +75,14 @@ body {
     letter-spacing: 1px;
     margin-bottom: 6px;
     color: #ffffff;
-    /* Efecto de texto cromado con destello neón */
+    
+    /* Configuración para compatibilidad total de degradado en texto */
     background: linear-gradient(180deg, #ffffff 30%, #e0e0e0 60%, var(--neon-pink) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent; /* Alternativa estándar */
+    
     text-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
 }
 
